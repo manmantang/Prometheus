@@ -129,7 +129,7 @@ void mainloop_cb(const ros::TimerEvent &e)
 
     // 【Land】 降落。当前位置原地降落，降落后会自动上锁，且切换为mannual模式
     case prometheus_msgs::SwarmCommand::Land:
-        if (Command_Last.Mode != prometheus_msgs::SwarmCommand::Land)
+        /*if (Command_Last.Mode != prometheus_msgs::SwarmCommand::Land)
         {
             // 设定起飞位置
             pos_des[0] = pos_drone[0];
@@ -149,9 +149,12 @@ void mainloop_cb(const ros::TimerEvent &e)
             arm_cmd.request.value = false;
             arming_client.call(arm_cmd);
             ROS_INFO_STREAM_ONCE ("---->Landed....");
-        }
-        break;
+        }*/
 
+        mode_cmd.request.custom_mode = "AUTO.LAND";
+        set_mode_client.call(mode_cmd);
+
+        break;
     case prometheus_msgs::SwarmCommand::Disarm:
         ROS_INFO_STREAM_ONCE ("---->Disarm....");
         if(_DroneState.mode == "OFFBOARD")
