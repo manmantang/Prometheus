@@ -93,7 +93,7 @@ void formation::change()
 
                 //菱形队形
                 case 2:
-                    if(location_source == "mocap")
+                    if(location_source == "mocap" || location_source == "gps")
                     {
                         //判断当前队形是否为菱形队形,是菱形队形则直接跳出当前队形
                         if(type_last == type_now)
@@ -110,9 +110,10 @@ void formation::change()
                         printf_formation_type("Diamond");
                         break;
                     }
-                    if(location_source == "uwb" || location_source == "gps")
+                    if(location_source == "uwb")
                     {
                         ROS_WARN("not support diamond formation");
+						type_now = type_last;
                         break;
                     }
                     

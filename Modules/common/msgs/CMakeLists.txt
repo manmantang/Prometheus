@@ -43,6 +43,11 @@ add_message_files(
   UgvCommand.msg
 )
 
+add_service_files(
+  FILES
+  GetOffsetpose.srv
+)
+
 add_action_files(
   DIRECTORY action
   FILES

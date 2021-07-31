@@ -22,6 +22,7 @@
 #include <mavros_msgs/State.h>
 #include <prometheus_msgs/ControlCommand.h>
 #include <prometheus_msgs/Formation.h>
+#include <prometheus_msgs/GetOffsetpose.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <std_msgs/Int8.h>
 #include <Eigen/Eigen>
@@ -222,6 +223,8 @@ class formation
 
         ros::ServiceClient uav5_takeoff_client;
 
+        ros::ServiceClient get_offsetpose_client;
+
 /*******************发布者*******************/
 
         //队形变换发布者
@@ -321,6 +324,8 @@ class formation
 
         //5号机仿真位置差值
         Eigen::Vector3d uav5_gazebo_offset_pose;
+
+        std::vector<Eigen::Vector3d> uavs_gps_offset_pose;
 
         //1号机当前状态
         mavros_msgs::State uav1_state;

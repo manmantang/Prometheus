@@ -1,0 +1,4 @@
+int64 uav_num
+---
+float64 offset_pose_x
+float64 offset_pose_y

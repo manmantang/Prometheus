@@ -5,3 +5,4 @@ gnome-terminal --window -e 'bash -c "roscore; exec bash"' \
 --tab -e 'bash -c "sleep 6; roslaunch prometheus_gazebo prometheus_formation_setmode.launch; exec bash"' \
 --tab -e 'bash -c "sleep 7; roslaunch prometheus_gazebo prometheus_formation_change.launch; exec bash"' \
 --tab -e 'bash -c "sleep 8; rosrun prometheus_mission formation_move; exec bash"' \
+--tab -e 'bash -c "sleep 8; rosrun prometheus_mission getoffsetpose; exec bash"' \
